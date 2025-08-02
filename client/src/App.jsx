@@ -6,18 +6,22 @@ import { HomePage } from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import ChatPage from "./pages/ChatPage";
 import ContactUsPage from "./pages/ContactUsPage";
+import LoginPage from "./pages/auth/LoginPage";
+import RegisterPage from "./pages/auth/RegisterPage";
+import ProtectedRoute from "./components/Routes/ProtectedRoutes";
 
 function App() {
   return <>
   <Toaster position="top-center" /> 
   <Routes>
-    <Route path="/" element={<HomePage/>} />
-    <Route path="/profile" element={<ProfilePage/>} />
-    <Route path="/messages" element={<ChatPage/>} />
-    <Route path="/contactUs" element={<ContactUsPage/>} />
+    <Route path="/" element={<ProtectedRoute><HomePage/></ProtectedRoute>} />
+    <Route path="/profile" element={<ProtectedRoute><ProfilePage/></ProtectedRoute>} />
+    <Route path="/messages" element={<ProtectedRoute><ChatPage/></ProtectedRoute>} />
+    <Route path="/contactUs" element={<ProtectedRoute><ContactUsPage/></ProtectedRoute>} />
+    <Route path="/login" element={<LoginPage/>} />
+    <Route path="/register" element={<RegisterPage/>} />
 
   </Routes>
-  
   </>;
 }
 

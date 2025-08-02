@@ -2,17 +2,12 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { UseAuth } from "../../context/AuthContext";
 
 export const Header = () => {
   const [visible, setVisible] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const userInfo = {
-    user : {
-        name: "John Doe",
-        email : "demo@gmail.com"
-    },
-    token : "fkdajkfkjeiorjeioj"
-  }
+  const {userInfo, setUserInfo} = UseAuth();
   const navigate = useNavigate();
 
 // For handling the mobile menu
@@ -36,11 +31,11 @@ export const Header = () => {
 
   const handleLogOut = async() =>{
     try {
-    //   await setUserInfo({
-    //     ...userInfo,
-    //     user : null,
-    //     token : null
-    //    })
+      await setUserInfo({
+        ...userInfo,
+        user : null,
+        token : null
+       })
 
        localStorage.removeItem("devCircle");
        setIsOpen(false);
@@ -81,7 +76,7 @@ export const Header = () => {
                         <img src={userInfo?.user?.photoURL} className="rounded-full w-8 border h-8" alt="user profile pic" onClick={handleMenu}/>
                       ) : (
 
-                         <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center text-white text-xl mb-4" onClick={handleMenu}>
+                         <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-xl mb-4" onClick={handleMenu}>
                             <p className="text-lg">{userInfo?.user?.name?.charAt(0)}</p>
                          </div>
                       )}
