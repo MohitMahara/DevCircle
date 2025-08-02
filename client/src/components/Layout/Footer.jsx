@@ -9,26 +9,25 @@ export const Footer = () => {
           <div className="text-xl font-semibold">
             <p>DevCircle</p>
           </div>
-          <ul className="flex space-x-4 mt-4 md:mt-0">
+          <ul className="flex space-x-4 mt-4 md:mt-0 justify-center">
             <li>
               <Link to="/" className="hover:text-gray-400">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/browse-events" className="hover:text-gray-400">
+              <Link to="/messages" className="hover:text-gray-400">
                 Messaging
               </Link>
             </li>
             <li>
-              <Link to="/browse-events" className="hover:text-gray-400">
+              <Link to="/contactUs" className="hover:text-gray-400">
                 ContactUs
               </Link>
             </li>
 
           </ul>
 
-          {/* Right - Copyright */}
           <p className="mt-4 md:mt-0 text-sm">
             © {new Date().getFullYear()} DevCircle. All rights reserved.
           </p>

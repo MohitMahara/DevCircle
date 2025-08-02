@@ -5,6 +5,7 @@ import { Toaster } from "react-hot-toast";
 import { HomePage } from "./pages/HomePage";
 import ProfilePage from "./pages/ProfilePage";
 import ChatPage from "./pages/ChatPage";
+import ContactUsPage from "./pages/ContactUsPage";
 
 function App() {
   return <>
@@ -13,6 +14,7 @@ function App() {
     <Route path="/" element={<HomePage/>} />
     <Route path="/profile" element={<ProfilePage/>} />
     <Route path="/messages" element={<ChatPage/>} />
+    <Route path="/contactUs" element={<ContactUsPage/>} />
 
   </Routes>
   
