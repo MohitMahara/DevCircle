@@ -57,7 +57,7 @@ export const Header = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <Link to="/" className="flex text-2xl font-bold content-center">
-              <p className="ps-2">DevCircle</p>
+              <p className="ps-2 text-yellow-600">DevCircle</p>
             </Link>
             <ul className="hidden md:flex space-x-6">
               <li>
@@ -66,7 +66,7 @@ export const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/browse-events" className="text-gray-700 hover:text-blue-600">
+                <Link to="/messages" className="text-gray-700 hover:text-blue-600">
                   Messaging
                 </Link>
               </li>
@@ -88,7 +88,7 @@ export const Header = () => {
 
                      {isOpen && (
                       <div className="absolute z-1 flex flex-col bg-gray-800 text-md shadow-lg rounded-md text-white text-center top-10 left-1/2 transform -translate-x-1/2 w-25">
-                        <NavLink to="/user-dashboard" className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-t-md">
+                        <NavLink to="/profile" className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-t-md">
                           Profile
                         </NavLink>
                         <NavLink className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-b-md" onClick={handleLogOut}>
@@ -138,7 +138,7 @@ export const Header = () => {
                   </li>
                   <li>
 
-                    <Link to="/create-event" className="block text-gray-700 hover:text-blue-600">
+                    <Link to="/messages" className="block text-gray-700 hover:text-blue-600">
                       Messaging
                     </Link>
 
@@ -159,7 +159,7 @@ export const Header = () => {
 
                      {isOpen && (
                       <div className="absolute z-10 flex flex-col bg-gray-800 text-md shadow-lg rounded-md text-white text-center top-10 left-1/2 transform -translate-x-1/2 w-25">
-                        <NavLink to="/user-dashboard" className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-t-md">
+                        <NavLink to="/profile" className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-t-md">
                           Profile
                         </NavLink>
                         <NavLink className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-b-md" onClick={handleLogOut}>
