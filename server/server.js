@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import { connectDB } from "./Config/db.js";
-import { errorMiddleware } from "./Middlewares/errorMiddleware.js";
+import { connectDB } from "./config/db.js";
+import { errorMiddleware } from "./middlewares/errorMiddleware.js";
 import authRoutes from "./routes/authRoutes.js";
 import postRoutes from "./routes/postRoutes.js";
 
