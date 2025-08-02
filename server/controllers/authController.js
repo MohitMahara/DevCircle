@@ -89,3 +89,35 @@ export const loginController = async(req, res, next) =>{
        next(error);
     }
 }
+
+
+
+export const getUserController = async(req, res, next) => {
+    try {
+        const {uid} = req.params;
+
+        if(!uid){
+            return res.status(400).send({
+                msg : "User ID is required",
+                success : false
+            })
+        }
+
+        const user = await userModel.findById(uid).select("-password");
+
+        if(!user){
+            return res.status(404).send({
+                msg : "User not found",
+                success : false
+            })
+        }
+
+        return res.status(200).send({
+            success : true,
+            user
+        })
+
+    } catch (error) {
+        next(error);
+    }
+}

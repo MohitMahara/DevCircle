@@ -3,6 +3,7 @@ import NewPost from "./NewPost";
 import { useState } from "react";
 import { useEffect } from "react";
 import PostCard from "../Card/PostCard";
+import axios from "axios";
 
 
 export default function Feed() {
@@ -11,10 +12,10 @@ export default function Feed() {
 
   const getPosts = async() => {
     try {
-      const res = await fetch('/Posts.json');
-      const data = await res.json();
-      setPosts(data);
-
+      const res = await axios.get(`${import.meta.env.VITE_SERVER_API}/api/v1/posts/getPosts`);
+      if (res.data.success) {
+        setPosts(res.data.posts);
+      }
     } catch (error) {
       toast.error(error.message);
     }
@@ -22,15 +23,13 @@ export default function Feed() {
 
   useEffect(() => {
      getPosts();
-  }, [posts]);
+  }, []);
 
-  const handleNewPost = (post) => {
-    setPosts([post, ...posts]);
-  };
+
 
   return (
     <div className="space-y-4">
-      <NewPost onPost={handleNewPost} />
+      <NewPost getPosts={getPosts}/>
       {posts?.map((post) => (
         <PostCard key={post?.id} post={post} />
       ))}

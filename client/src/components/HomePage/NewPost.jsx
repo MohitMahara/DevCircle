@@ -1,21 +1,29 @@
 import { useState } from 'react';
+import { UseAuth } from '../../context/AuthContext';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
-export default function NewPost({ onPost }) {
-  const [text, setText] = useState('');
+export default function NewPost({getPosts}) {
+  const [content, setContent] = useState("");
+  const {userInfo} = UseAuth();
+  const userId = userInfo?.user?._id;
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    if (!text.trim()) return;
-    
-    const newPost = {
-      id: Date.now(),
-      author: JSON.parse(localStorage.getItem('user'))?.name || 'Guest',
-      content: text,
-      timestamp: 'Just now',
-    };
+    try {
+        const res = await axios.post(`${import.meta.env.VITE_SERVER_API}/api/v1/posts/createPost`, 
+            {userId, content});
 
-    onPost(newPost);
-    setText('');
+        if (res.data.success) {
+            toast.success(res.data.msg);
+            setContent("");
+            getPosts();
+        }
+        
+    } catch (error) {
+        toast.error(error.message);
+    }
   };
 
   return (
@@ -25,8 +33,8 @@ export default function NewPost({ onPost }) {
           className="w-full p-2 border rounded resize-none text-sm"
           placeholder="Start a post..."
           rows={3}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
         />
         <div className="text-right mt-2">
           <button

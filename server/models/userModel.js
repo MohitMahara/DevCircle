@@ -23,13 +23,6 @@ const userSchema = new mongoose.Schema(
         default : "Software Engineer at DevCircle",
     },
 
-    createdPosts: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "events",
-      },
-    ],
-
   },
   { timestamps: true }
 );

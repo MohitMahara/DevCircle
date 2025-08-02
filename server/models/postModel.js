@@ -8,6 +8,11 @@ const postSchema = new mongoose.Schema(
       required: true,
     },
 
+    Author: {
+        type: String,
+        required: true,
+    },
+
     content : {
         type : String,
         required : true,
