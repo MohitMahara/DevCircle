@@ -83,7 +83,7 @@ export const Header = () => {
 
                      {isOpen && (
                       <div className="absolute z-1 flex flex-col bg-gray-800 text-md shadow-lg rounded-md text-white text-center top-10 left-1/2 transform -translate-x-1/2 w-25">
-                        <NavLink to="/profile" className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-t-md">
+                        <NavLink to={`/profile/${userInfo?.user?._id}`} className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-t-md">
                           Profile
                         </NavLink>
                         <NavLink className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-b-md" onClick={handleLogOut}>
@@ -154,7 +154,7 @@ export const Header = () => {
 
                      {isOpen && (
                       <div className="absolute z-10 flex flex-col bg-gray-800 text-md shadow-lg rounded-md text-white text-center top-10 left-1/2 transform -translate-x-1/2 w-25">
-                        <NavLink to="/profile" className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-t-md">
+                        <NavLink to={`/profile/${userInfo?.user?._id}`} className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-t-md">
                           Profile
                         </NavLink>
                         <NavLink className="px-2 py-1.5 transition duration-200 ease-in-out hover:bg-gray-600 hover:text-white rounded-b-md" onClick={handleLogOut}>
